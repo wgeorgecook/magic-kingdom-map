@@ -1,4 +1,4 @@
-import React, { Component } from 'react-dom';
+import React, { Component } from 'react';
 
 class MapView extends Component {
     render() {
@@ -8,4 +8,4 @@ class MapView extends Component {
     }
 }
 
-export default MapView
+export default MapView;

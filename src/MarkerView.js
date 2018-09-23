@@ -1,4 +1,4 @@
-import React, { Component } from 'react-dom';
+import React, { Component } from 'react';
 
 class MarkerView extends Component {
     render() {
@@ -8,4 +8,4 @@ class MarkerView extends Component {
     }
 }
 
-export default MarkerView
+export default MarkerView;

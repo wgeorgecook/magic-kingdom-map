@@ -1,4 +1,4 @@
-import React, { Component } from 'react-dom';
+import React, { Component } from 'react';
 
 class LocationFilter extends Component {
     render() {
@@ -8,4 +8,4 @@ class LocationFilter extends Component {
     }
 }
 
-export default LocationFilter
+export default LocationFilter;

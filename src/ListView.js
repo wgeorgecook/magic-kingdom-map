@@ -1,4 +1,4 @@
-import React, { Component } from 'react-dom';
+import React, { Component } from 'react';
 
 class ListView extends Component {
     render() {
@@ -8,4 +8,4 @@ class ListView extends Component {
     }
 }
 
-export default ListView
+export default ListView;
