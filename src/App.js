@@ -12,15 +12,10 @@ class App extends Component {
         <ListView />
         <LocationFilter />
         <MapView
-          defaultLocation={{lat:28.385233 , lng: -81.563873}}
+          defaultLocation={{lat:28.417664 , lng: -81.581215}}
+          defaultZoom={15}
+          defaultHeight={'400px'}
         />
-        {/*
-        <MapView
-          defaultLocation={{lat:28.385233 , lng: -81.563873}}
-          defaultZoom={8}
-        />
-      */}
-
         <MarkerView />
       </div>
     );
