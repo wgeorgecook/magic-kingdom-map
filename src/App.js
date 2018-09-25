@@ -11,7 +11,16 @@ class App extends Component {
       <div className="App">
         <ListView />
         <LocationFilter />
-        <MapView />
+        <MapView
+          defaultLocation={{lat:28.385233 , lng: -81.563873}}
+        />
+        {/*
+        <MapView
+          defaultLocation={{lat:28.385233 , lng: -81.563873}}
+          defaultZoom={8}
+        />
+      */}
+
         <MarkerView />
       </div>
     );
