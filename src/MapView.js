@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
+import MarkerView from './MarkerView.js';
 
 class MapView extends Component {
 
@@ -9,7 +9,7 @@ class MapView extends Component {
         defaultZoom={this.props.defaultZoom}
         defaultCenter={this.props.defaultLocation}
         >
-        {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
+        {props.isMarkerShown && <Marker position={this.props.defaultLocation } />}
         </GoogleMap>
   ))
 
@@ -19,7 +19,7 @@ class MapView extends Component {
         return (
             <div id="map">
             <this.MyMapComponent
-                isMarkerShown={false}
+                isMarkerShown={true}
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyABZJIOmyU36I209r096vcD_WY39JMxRPQ"
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: this.props.defaultHeight }} />}
