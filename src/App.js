@@ -5,14 +5,12 @@ import './App.css';
 
 class App extends Component {
   data = require('./data.json');
+  allMarkers = this.data.rides.map( (ride) => ride.location )
 
   state = {
     updated: false,
     attractions: [],
-    markers: [
-      {"lat": 28.4180168, "lng":-81.5851817},
-      {"lat":28.418971, "lng":-81.5801939}
-    ]
+    markers: this.allMarkers
   }
 
   newMarkers = (markerArray) => {
