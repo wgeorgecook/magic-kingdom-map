@@ -16,6 +16,9 @@ class LocationFilter extends Component {
                 <option value="All">All</option>
                 <option value="Thrill">Thrill</option>
                 <option value="Slow">Slow</option>
+                <option value="Show">Show</option>
+                <option value="Coaster">Coaster</option>
+                <option value="Dark">Dark</option>
             </select>
 
         )
