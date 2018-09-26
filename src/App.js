@@ -15,11 +15,17 @@ class App extends Component {
     ]
   }
 
+  newMarkers = (markerArray) => {
+    console.log(markerArray)
+    this.setState({markers: markerArray})
+  }
+
   render() {
     return (
       <div className="App">
         <ListView
-        attractions={this.data}
+          attractions={this.data}
+          onNewMarkers={this.newMarkers}
         />
 
         <MapView
