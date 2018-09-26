@@ -10,7 +10,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ListView />
+        <ListView
+        attractions={this.data}
+        />
         <LocationFilter
           attractions={this.data}
           />
