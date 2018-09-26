@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
-import MarkerView from './MarkerView.js';
+// import MarkerView from './MarkerView.js';
 
 class MapView extends Component {
 

@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import ListView from './ListView.js';
-import LocationFilter from './LocationFilter.js';
 import MapView from './MapView.js';
 import './App.css';
 
 class App extends Component {
+  data = require('./data.json');
 
+  state = {
+    updated: false,
+    attractions: []
+  }
 
   render() {
     return (
       <div className="App">
-        <ListView />
-        <LocationFilter />
+        <ListView
+        attractions={this.data}
+        />
+
         <MapView
           defaultLocation={{lat:28.417664 , lng: -81.581215}}
           defaultZoom={15}
