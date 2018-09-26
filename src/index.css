@@ -8,3 +8,9 @@ body {
 #map {
   margin: auto;
 }
+
+#filter {
+  width: 45%;
+  padding: .5em;
+  margin: auto;
+}
