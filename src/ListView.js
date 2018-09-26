@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LocationFilter from './LocationFilter.js';
 
 class ListView extends Component {
 
@@ -6,11 +7,19 @@ class ListView extends Component {
 
     render() {
         return (
-            <ul id='list-view'>
-                {this.rides.map((ride,i) =>
-                    <li key={i}> {ride.name} </li>
-                )}
-            </ul>
+            <div id="list-view">
+
+                <ul id='list-locations'>
+                    {this.rides.map((ride,i) =>
+                        <li key={i}> {ride.name} </li>
+                    )}
+                </ul>
+
+                <LocationFilter
+                    attractions={this.props.attractions}
+                />
+
+            </div>
         )
     }
 }
