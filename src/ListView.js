@@ -18,7 +18,7 @@ class ListView extends Component {
         let markers;
         (category === "All") ?
             markers = this.rides.map( (ride) => ride.location ) : // pass all markers or filtered markers
-            markers = this.rides.filter( (ride) => ride.category === category).map( (ride) => ride.location )
+            markers = this.rides.filter( (ride) => ride.category.includes(category)).map( (ride) => ride.location )
         this.props.onNewMarkers(markers)
     }
 
@@ -28,7 +28,7 @@ class ListView extends Component {
 
                 <ul id='list-locations'>
                     { (this.state.filter !== "All") ?
-                        this.rides.filter( (ride) => ride.category === this.state.filter).map((ride,i) =>
+                        this.rides.filter( (ride) => ride.category.includes(this.state.filter)).map((ride,i) =>
                             <li key={i}> {ride.name} </li>) :
                         this.rides.map((ride,i) =>
                             <li key={i}> {ride.name} </li>)
