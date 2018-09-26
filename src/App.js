@@ -5,13 +5,15 @@ import MapView from './MapView.js';
 import './App.css';
 
 class App extends Component {
-
+  data = require('./data.json');
 
   render() {
     return (
       <div className="App">
         <ListView />
-        <LocationFilter />
+        <LocationFilter
+          attractions={this.data}
+          />
         <MapView
           defaultLocation={{lat:28.417664 , lng: -81.581215}}
           defaultZoom={15}
