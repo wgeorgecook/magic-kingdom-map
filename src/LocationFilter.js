@@ -4,11 +4,7 @@ class LocationFilter extends Component {
 
 
     selectNew = (e) => {
-        this.showValue(e.target.value)
-    }
-
-    showValue(e) {
-        console.log(e)
+        this.props.onNewFilter(e.target.value)
     }
 
 

@@ -5,6 +5,10 @@ class ListView extends Component {
 
     rides = this.props.attractions.rides
 
+    newFilter = (filter) => {
+        console.log(filter)
+    }
+
     render() {
         return (
             <div id="list-view">
@@ -17,6 +21,7 @@ class ListView extends Component {
 
                 <LocationFilter
                     attractions={this.props.attractions}
+                    onNewFilter={this.newFilter}
                 />
 
             </div>
