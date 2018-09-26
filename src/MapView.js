@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
-// import MarkerView from './MarkerView.js';
+import MarkerView from './MarkerView.js';
 
 class MapView extends Component {
 
@@ -8,10 +8,26 @@ class MapView extends Component {
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
-        defaultZoom={this.props.defaultZoom}
-        defaultCenter={this.props.defaultLocation}
-        >
-        {props.isMarkerShown && this.props.markers.map( (position, i) => <Marker key={i} position={position} />)}
+            defaultZoom={this.props.defaultZoom}
+            defaultCenter={this.props.defaultLocation}
+            >
+            {props.isMarkerShown && this.props.markers.map( (position, i) =>
+                <div className="marker-and-info">
+                    <div className="marker">
+                        <Marker
+                            key={i}
+                            position={position}
+                        />
+                    </div>
+                    <div className="infobox">
+                        <MarkerView
+                            key={i}
+                            location={position}
+                        />
+                    </div>
+                </div>
+        )}
+
         </GoogleMap>
   ))
 
