@@ -10,7 +10,7 @@ class ListView extends Component {
     }
 
     newFilter = (filter) => {
-        this.setState({filter})
+        (filter !== "All") ? this.setState({filter}) : this.setState({filter: "All"})
     }
 
     render() {
@@ -18,9 +18,12 @@ class ListView extends Component {
             <div id="list-view">
 
                 <ul id='list-locations'>
-                    {this.rides.filter( (ride) => ride.category === this.state.filter).map((ride,i) =>
-                        <li key={i}> {ride.name} </li>
-                    )}
+                    { (this.state.filter !== "All") ?
+                        this.rides.filter( (ride) => ride.category === this.state.filter).map((ride,i) =>
+                            <li key={i}> {ride.name} </li>) :
+                        this.rides.map((ride,i) =>
+                            <li key={i}> {ride.name} </li>)
+                    }
                 </ul>
 
                 <LocationFilter
