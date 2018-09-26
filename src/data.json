@@ -1,0 +1,64 @@
+{
+    "rides": [
+        {
+            "name": "Astro Orbiter",
+            "category": "Slow",
+            "averageWait": "30 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Big Thunder Mountain Railroad",
+            "category": "Thrill",
+            "averageWait": "45 minutes",
+            "minimumHeight": "40 inches"
+        },
+        {
+            "name": "Buzz Lightyear's Big Spin",
+            "category": "Slow",
+            "averageWait": "30 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Haunted Mansion",
+            "category": "Dark",
+            "averageWait": "45 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Jungle Cruise",
+            "category": "Slow",
+            "averageWait": "30 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "It's A Small World",
+            "category": "Slow",
+            "averageWait": "45 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Peter Pan's Flight",
+            "category": "Slow",
+            "averageWait": "60 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Pirates of the Carribean",
+            "category": "Thrill",
+            "averageWait": "30 minutes",
+            "minimumHeight": "None"
+        },
+        {
+            "name": "Space Mountain",
+            "category": "Thrill",
+            "averageWait": "60 minutes",
+            "minimumHeight": "44 inches"
+        },
+        {
+            "name": "Splash Mountain",
+            "category": "Thrill",
+            "averageWait": "45 minutes",
+            "minimumHeight": "40 inches"
+        }
+    ]
+}
