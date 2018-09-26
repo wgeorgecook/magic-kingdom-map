@@ -4,12 +4,14 @@ import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps'
 
 class MapView extends Component {
 
+    markers = this.props.markers;
+
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
         defaultZoom={this.props.defaultZoom}
         defaultCenter={this.props.defaultLocation}
         >
-        {props.isMarkerShown && <Marker position={this.props.defaultLocation } />}
+        {props.isMarkerShown && this.props.markers.map( (position, i) => <Marker key={i} position={position} />)}
         </GoogleMap>
   ))
 
