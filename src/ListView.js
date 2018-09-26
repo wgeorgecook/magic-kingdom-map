@@ -10,7 +10,16 @@ class ListView extends Component {
     }
 
     newFilter = (filter) => {
-        (filter !== "All") ? this.setState({filter}) : this.setState({filter: "All"})
+        (filter !== "All") ? this.setState({filter}) : this.setState({filter: "All"});
+        this.newMarkers(filter)
+    }
+
+    newMarkers = (category) => {
+        let markers;
+        (category === "All") ?
+            markers = this.rides.map( (ride) => ride.location ) : // pass all markers or filtered markers
+            markers = this.rides.filter( (ride) => ride.category === category).map( (ride) => ride.location )
+        this.props.onNewMarkers(markers)
     }
 
     render() {

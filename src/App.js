@@ -8,14 +8,24 @@ class App extends Component {
 
   state = {
     updated: false,
-    attractions: []
+    attractions: [],
+    markers: [
+      {"lat": 28.4180168, "lng":-81.5851817},
+      {"lat":28.418971, "lng":-81.5801939}
+    ]
+  }
+
+  newMarkers = (markerArray) => {
+    console.log(markerArray)
+    this.setState({markers: markerArray})
   }
 
   render() {
     return (
       <div className="App">
         <ListView
-        attractions={this.data}
+          attractions={this.data}
+          onNewMarkers={this.newMarkers}
         />
 
         <MapView
@@ -23,6 +33,7 @@ class App extends Component {
           defaultZoom={15}
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
+          markers={this.state.markers}
         />
       </div>
     );
