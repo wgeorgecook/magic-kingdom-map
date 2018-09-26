@@ -6,6 +6,11 @@ import './App.css';
 class App extends Component {
   data = require('./data.json');
 
+  state = {
+    updated: false,
+    attractions: []
+  }
+
   render() {
     return (
       <div className="App">
