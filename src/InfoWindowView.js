@@ -6,7 +6,10 @@ import {InfoWindow} from 'react-google-maps';
 class InfoWindowView extends Component {
     render() {
         return (
-            <InfoWindow defaultPosition={this.props.location}>
+            <InfoWindow
+                defaultPosition={this.props.location}
+                onCloseClick={this.props.closeClick}
+            >
                 <div>Hi</div>
             </InfoWindow>
         )

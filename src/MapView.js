@@ -15,9 +15,8 @@ class MapView extends Component {
         this.setState({isOpenIndex: index})
     }
 
-    clearState = () => {
+    nullState = () => {
         this.setState({isOpenIndex: null})
-        console.log(this.state.isOpenIndex)
     }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
@@ -34,7 +33,7 @@ class MapView extends Component {
                     {(this.state.isOpenIndex === i) &&
                        <InfoWindowView
                             location={position}
-                            onCloseClick={this.clearState}
+                            closeClick={this.nullState}
                         />
                     }
 
