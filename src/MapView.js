@@ -1,17 +1,44 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
-// import MarkerView from './MarkerView.js';
+import InfoWindowView from './InfoWindowView.js';
+
 
 class MapView extends Component {
 
+    state = {
+        isOpenIndex: null
+    }
+
     markers = this.props.markers;
+
+    toggleBox(index){
+        this.setState({isOpenIndex: index})
+    }
+
+    nullState = () => {
+        this.setState({isOpenIndex: null})
+    }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
-        defaultZoom={this.props.defaultZoom}
-        defaultCenter={this.props.defaultLocation}
-        >
-        {props.isMarkerShown && this.props.markers.map( (position, i) => <Marker key={i} position={position} />)}
+            defaultZoom={this.props.defaultZoom}
+            defaultCenter={this.props.defaultLocation}
+            >
+            {props.isMarkerShown && this.props.markers.map( (position, i) =>
+                <div key={i} className="markers-and-infobox">
+                    <Marker
+                        position={position}
+                        onClick={() => this.toggleBox(i)}
+                    />
+                    {(this.state.isOpenIndex === i) &&
+                       <InfoWindowView
+                            location={position}
+                            closeClick={this.nullState}
+                        />
+                    }
+
+                </div>
+            )}
         </GoogleMap>
   ))
 
