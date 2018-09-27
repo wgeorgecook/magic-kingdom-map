@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
-import MarkerView from './MarkerView.js';
+import InfoWindowView from './InfoWindowView.js';
 
 
 class MapView extends Component {
 
     state = {
-        isOpenIndex: 0
+        isOpenIndex: null
     }
 
     markers = this.props.markers;
 
     toggleBox(index){
         this.setState({isOpenIndex: index})
-        console.log(index)
+    }
+
+    clearState = () => {
+        this.setState({isOpenIndex: null})
+        console.log(this.state.isOpenIndex)
     }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
@@ -28,8 +32,9 @@ class MapView extends Component {
                         onClick={() => this.toggleBox(i)}
                     />
                     {(this.state.isOpenIndex === i) &&
-                       <MarkerView
+                       <InfoWindowView
                             location={position}
+                            onCloseClick={this.clearState}
                         />
                     }
 

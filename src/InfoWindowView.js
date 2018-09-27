@@ -3,7 +3,7 @@ import {InfoWindow} from 'react-google-maps';
 
 
 // InfoWindows on markers
-class MarkerView extends Component {
+class InfoWindowView extends Component {
     render() {
         return (
             <InfoWindow defaultPosition={this.props.location}>
@@ -13,4 +13,4 @@ class MarkerView extends Component {
     }
 }
 
-export default MarkerView;
+export default InfoWindowView;
