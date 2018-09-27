@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {InfoWindow} from 'react-google-maps';
-import YelpInfo from './YelpInfo.js'
+import FourSquareInfo from './FourSquareInfo.js'
 
 // InfoWindows on markers
 class InfoWindowView extends Component {
@@ -10,7 +10,7 @@ class InfoWindowView extends Component {
                 defaultPosition={this.props.location}
                 onCloseClick={this.props.closeClick}
             >
-                <YelpInfo />
+                <FourSquareInfo />
             </InfoWindow>
         )
     }
