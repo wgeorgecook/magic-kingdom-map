@@ -4,18 +4,22 @@ import React, { Component } from 'react';
 class FourSquareInfo extends Component {
 
     state = {
-        clientID: "ujX3z_HJUDzuoDjBEBObkA",
-        apiKey: "bceSq_iUcRhYLkYCbfEggdd9x2dxfGpyOn5xiMjfsOkZ55ZfaO75amgDO18lDkOFlIgilK6JiSO9Z3ynY03SKnH8Idh4Xg3yCFpNPbsY6NhGKvDl3d08EWbRelmsW3Yx"
+        clientID: "I2XVEDDAX1EILNB2YJ105QP3QGJDSSP4BRX3TMX2YF4S1MBW",
+        clientSecret: "WMJMPMLWRU4UNA1SBTLQ0KGRFTHZS44PTT5LMPPW5NSVILQX"
 
     }
 
-    getReview(location) {
-        return null
+    getDetails(location) {
+        console.log(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&client_id=${this.state.clientID}&client_secret=${this.state.clientSecret}&v=20180927`)
+        fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&client_id=${this.state.clientID}&client_secret=${this.state.clientSecret}&v=20180927`)
+            .then( (response) => response.json )
+            .then( (jsonResponse) => console.log(`Response: ${JSON.stringify(jsonResponse)}`) )
+            .catch( (err) => console.log(err) )
     }
 
     render() {
         return (
-            <div>FourSquareInfo info!</div>
+            <div onClick={() => this.getDetails(this.props.location)}>FourSquareInfo info!</div>
         )
     }
 }

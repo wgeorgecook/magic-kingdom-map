@@ -10,7 +10,9 @@ class InfoWindowView extends Component {
                 defaultPosition={this.props.location}
                 onCloseClick={this.props.closeClick}
             >
-                <FourSquareInfo />
+                <FourSquareInfo
+                    location={this.props.location}
+                />
             </InfoWindow>
         )
     }
