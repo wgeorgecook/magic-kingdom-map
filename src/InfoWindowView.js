@@ -12,6 +12,7 @@ class InfoWindowView extends Component {
             >
                 <FourSquareInfo
                     location={this.props.location}
+                    marker={this.props.marker}
                 />
             </InfoWindow>
         )

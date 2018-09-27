@@ -9,7 +9,7 @@ class MapView extends Component {
         isOpenIndex: null
     }
 
-    markers = this.props.markers;
+    markers = this.props.markersLocation;
 
     toggleBox(index){
         this.setState({isOpenIndex: index})
@@ -24,7 +24,7 @@ class MapView extends Component {
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
             >
-            {props.isMarkerShown && this.props.markers.map( (position, i) =>
+            {props.isMarkerShown && this.props.markersLocation.map( (position, i) =>
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={position}
@@ -33,6 +33,7 @@ class MapView extends Component {
                     {(this.state.isOpenIndex === i) &&
                        <InfoWindowView
                             location={position}
+                            marker={this.props.markers[i]}
                             closeClick={this.nullState}
                         />
                     }

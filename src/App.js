@@ -5,17 +5,18 @@ import './App.css';
 
 class App extends Component {
   data = require('./data.json');
-  allMarkers = this.data.rides.map( (ride) => ride.location )
+  allMarkersLocation = this.data.rides.map( (ride) => ride.location )
+  allMarkersData = this.data.rides.map( ride => ride )
 
   state = {
     updated: false,
     attractions: [],
-    markers: this.allMarkers
+    markersLocation: this.allMarkersLocation
   }
 
   newMarkers = (markerArray) => {
     console.log(markerArray)
-    this.setState({markers: markerArray})
+    this.setState({markersLocation: markerArray})
   }
 
   render() {
@@ -31,7 +32,8 @@ class App extends Component {
           defaultZoom={15}
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
-          markers={this.state.markers}
+          markersLocation={this.state.markersLocation}
+          markers={this.allMarkersData}
         />
       </div>
     );
