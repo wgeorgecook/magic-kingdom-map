@@ -6,10 +6,15 @@ import MarkerView from './MarkerView.js';
 class MapView extends Component {
 
     state = {
-        isOpen: true
+        isOpenIndex: 0
     }
 
     markers = this.props.markers;
+
+    toggleBox(index){
+        this.setState({isOpenIndex: index})
+        console.log(index)
+    }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
@@ -18,10 +23,16 @@ class MapView extends Component {
             >
             {props.isMarkerShown && this.props.markers.map( (position, i) =>
                 <div key={i} className="markers-and-infobox">
-                    <Marker position={position} />
-                    <MarkerView
-                        location={position}
+                    <Marker
+                        position={position}
+                        onClick={() => this.toggleBox(i)}
                     />
+                    {(this.state.isOpenIndex === i) &&
+                       <MarkerView
+                            location={position}
+                        />
+                    }
+
                 </div>
             )}
         </GoogleMap>
