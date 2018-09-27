@@ -9,18 +9,20 @@ class FourSquareInfo extends Component {
 
     }
 
+    thisSearch;
+
     getDetails(location) {
         console.log(this.props.marker)
         //console.log(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&client_id=${this.state.clientID}&client_secret=${this.state.clientSecret}&v=20180927`)
         fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&client_id=${this.state.clientID}&client_secret=${this.state.clientSecret}&v=20180927`)
             .then( (response) => response.json() )
-            .then( (jsonResponse) => console.log( jsonResponse ) )
+            .then( (jsonResponse) => (this.thisSearch = jsonResponse ) )
             .catch( (err) => console.log(err) )
     }
 
     render() {
         return (
-            <div onClick={() => this.getDetails(this.props.location)}>FourSquareInfo info!</div>
+            <div onClick={() => this.getDetails(this.props.location)}>{this.props.marker.name}</div>
         )
     }
 }
