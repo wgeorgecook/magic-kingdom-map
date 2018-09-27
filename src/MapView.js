@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 import MarkerView from './MarkerView.js';
 
+
 class MapView extends Component {
+
+    state = {
+        isOpen: true
+    }
 
     markers = this.props.markers;
 
@@ -12,22 +17,13 @@ class MapView extends Component {
             defaultCenter={this.props.defaultLocation}
             >
             {props.isMarkerShown && this.props.markers.map( (position, i) =>
-                <div className="marker-and-info">
-                    <div className="marker">
-                        <Marker
-                            key={i}
-                            position={position}
-                        />
-                    </div>
-                    <div className="infobox">
-                        <MarkerView
-                            key={i}
-                            location={position}
-                        />
-                    </div>
+                <div key={i} className="markers-and-infobox">
+                    <Marker position={position} />
+                    <MarkerView
+                        location={position}
+                    />
                 </div>
-        )}
-
+            )}
         </GoogleMap>
   ))
 

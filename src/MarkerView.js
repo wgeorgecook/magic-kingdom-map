@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import InfoBox from 'react-google-maps'
+import {InfoWindow} from 'react-google-maps';
 
 
 // InfoWindows on markers
 class MarkerView extends Component {
     render() {
         return (
-            <InfoBox
-                defaultPosition={this.props.location}
-                defaultVisible={false}
-            />
+            <InfoWindow defaultPosition={this.props.location}>
+                <div>Hi</div>
+            </InfoWindow>
         )
     }
 }
