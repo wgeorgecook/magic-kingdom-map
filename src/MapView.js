@@ -40,13 +40,13 @@ class MapView extends Component {
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
             >
-            {props.isMarkerShown && this.props.markersLocation.map( (position, i) =>
+            {props.isMarkerShown && this.props.markersLocation.map( (position, i) => // Fix this to dynamically load marker index
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={position}
                         onClick={() => this.loadData(position, this.props.markers[i], i)}
                     />
-                    {(this.state.isOpenIndex === i) &&
+                    {(this.state.isOpenIndex === i) && (this.props.clearMarkers !== true) &&
                        <InfoWindowView
                             location={position}
                             marker={this.props.markers[i]}

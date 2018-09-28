@@ -9,31 +9,46 @@ class App extends Component {
   allMarkersData = this.data.rides.map( ride => ride )
 
   state = {
-    updated: false,
-    attractions: [],
-    markersLocation: this.allMarkersLocation
+    attractions: this.allMarkersData,
+    markersLocation: this.allMarkersLocation,
+    clearInfoWindows: false
   }
 
-  newMarkers = (markerArray) => {
+  newMarkersLocations = (markerArray) => {
     // console.log(markerArray)
     this.setState({markersLocation: markerArray})
+    //setTimeout(() => {console.log(this.state.markersLocation)}, 1000)
+  }
+
+  newMarkers = (attractions) => {
+    this.setState(
+        {attractions: attractions,
+         clearInfoWindows: true})
+    this.showMarkers()
+    // setTimeout(() => {console.log(this.state.attractions)}, 1000)
+  }
+
+  showMarkers() {
+    this.setState({clearInfoWindows: false})
   }
 
   render() {
     return (
       <div className="App">
         <ListView
-          attractions={this.data}
+          attractions={this.state.attractions}
+          onNewMarkersLocations={this.newMarkersLocations}
           onNewMarkers={this.newMarkers}
         />
 
         <MapView
-          defaultLocation={{lat:28.417664 , lng: -81.581215}}
-          defaultZoom={15}
+          defaultLocation={{lat:28.418744, lng:-81.581203}}
+          defaultZoom={16}
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
           markersLocation={this.state.markersLocation}
-          markers={this.allMarkersData}
+          markers={this.state.attractions}
+          clearMarkers={this.state.clearInfoWindows}
         />
       </div>
     );
