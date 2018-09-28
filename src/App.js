@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   newMarkers = (markerArray) => {
-    console.log(markerArray)
+    // console.log(markerArray)
     this.setState({markersLocation: markerArray})
   }
 
