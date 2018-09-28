@@ -4,7 +4,9 @@ import {InfoWindow} from 'react-google-maps';
 
 // InfoWindows on markers
 class InfoWindowView extends Component {
+
     render() {
+
         return (
             <InfoWindow
                 defaultPosition={this.props.location}
@@ -12,17 +14,8 @@ class InfoWindowView extends Component {
             >
                 <div className="thewindow">
                     <div>{this.props.marker.name}</div>
-                    <div className="4squareInfo">{this.props.dataToDisplay}</div>
+                    <div className="4squareInfo">{this.props.dataToDisplay.response.venues[0].id}</div>
                 </div>
-                { /*
-                <FourSquareInfo
-                    location={this.props.location}
-                    marker={this.props.marker}
-                    onLoadDetails={this.props.onLoadApi}
-                    dataToDisplay={this.props.dataToDisplay}
-                />
-                */
-               }
             </InfoWindow>
         )
     }
