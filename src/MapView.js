@@ -7,24 +7,22 @@ import * as FourAPI from './FourSquareAPI.js'
 class MapView extends Component {
 
     state = {
-        data: {
-            isOpenIndex: null,
-            loadedData: null
-        }
+        isOpenIndex: null,
+        rating: null
     }
 
     markers = this.props.markersLocation;
 
     loadData(position, marker, index){
-        FourAPI.getDetails(position, marker)
-            .then( (loadedData) => this.setState(
-                { data: {
-                    isOpenIndex: index,
-                    loadedData: loadedData
-                    }
-                } ) )
-
+        FourAPI.getID(position, marker)
+            .then( (id) =>
+                FourAPI.getDetails(id)
+                .then( (rating) => this.setState( {rating} ) )
+                // .then(console.log(this))
+                )
+        this.toggleBox(index)
     }
+
 
     toggleBox(index) {
         this.setState({isOpenIndex: index})
@@ -46,12 +44,12 @@ class MapView extends Component {
                         position={position}
                         onClick={() => this.loadData(position, this.props.markers[i], i)}
                     />
-                    {(this.state.data.isOpenIndex === i) &&
+                    {(this.state.isOpenIndex === i) &&
                        <InfoWindowView
                             location={position}
                             marker={this.props.markers[i]}
                             closeClick={this.nullState}
-                            dataToDisplay={this.state.data.loadedData}
+                            rating={this.state.rating}
                         />
                     }
 
