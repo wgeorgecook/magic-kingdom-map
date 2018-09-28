@@ -16,4 +16,4 @@ export const getDetails = (id) =>
     fetch(`https://api.foursquare.com/v2/venues/${id}?&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927`)
         .then( (response) => response.json() )
         .then( (jsonResponse) => (jsonResponse.response.venue.rating))
-        .catch( (err) => console.log(err) )
+        .catch( (err) => "Cannont find rating")
