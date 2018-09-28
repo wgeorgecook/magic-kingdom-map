@@ -14,6 +14,7 @@ class MapView extends Component {
     markers = this.props.markersLocation;
 
     loadData(position, marker, index){
+        this.nullState()
         FourAPI.getID(position, marker)
             .then( (id) =>
                 FourAPI.getDetails(id)
@@ -30,6 +31,7 @@ class MapView extends Component {
 
     nullState = () => {
         this.setState({isOpenIndex: null})
+        this.setState({rating: false})
     }
 
 
