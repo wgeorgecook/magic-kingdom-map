@@ -15,8 +15,8 @@ class InfoWindowView extends Component {
                 onCloseClick={this.props.closeClick}
             >
                 <div className="thewindow">
-                    <div>{this.props.marker.name}</div>
-                    <div className="4squareInfo">{this.props.rating}</div>
+                    <div>Attraction: {this.props.marker.name}</div>
+                    <div className="4squareInfo">Rating: {this.props.rating}</div>
                 </div>
             </InfoWindow>
         )
