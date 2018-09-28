@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 import InfoWindowView from './InfoWindowView.js';
+import * as FourAPI from './FourSquareAPI.js'
 
 
 class MapView extends Component {
 
     state = {
-        isOpenIndex: null,
-        loadedData: null
+        data: {
+            isOpenIndex: null,
+            loadedData: null
+        }
     }
 
     markers = this.props.markersLocation;
 
-    toggleBox(index){
+    loadData(position, marker, index){
+        FourAPI.getDetails(position, marker)
+            .then( (loadedData) => this.setState(
+                { data: {
+                    isOpenIndex: index,
+                    loadedData: loadedData
+                    }
+                } ) )
+
+    }
+
+    toggleBox(index) {
         this.setState({isOpenIndex: index})
     }
 
@@ -20,10 +34,6 @@ class MapView extends Component {
         this.setState({isOpenIndex: null})
     }
 
-    showData = (data) => {
-        this.setState({loadedData: data})
-        console.log(this.state.loadedData)
-    }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
@@ -34,15 +44,14 @@ class MapView extends Component {
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={position}
-                        onClick={() => this.toggleBox(i)}
+                        onClick={() => this.loadData(position, this.props.markers[i], i)}
                     />
-                    {(this.state.isOpenIndex === i) &&
+                    {(this.state.data.isOpenIndex === i) &&
                        <InfoWindowView
                             location={position}
                             marker={this.props.markers[i]}
                             closeClick={this.nullState}
-                            // onLoadApi={this.showData}
-                            // dataToDisplay={this.state.loadedData}
+                            dataToDisplay={this.state.data.loadedData}
                         />
                     }
 
