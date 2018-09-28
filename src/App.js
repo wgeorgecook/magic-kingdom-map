@@ -10,7 +10,8 @@ class App extends Component {
 
   state = {
     attractions: this.allMarkersData,
-    markersLocation: this.allMarkersLocation
+    markersLocation: this.allMarkersLocation,
+    clearInfoWindows: false
   }
 
   newMarkersLocations = (markerArray) => {
@@ -20,10 +21,16 @@ class App extends Component {
   }
 
   newMarkers = (attractions) => {
-    this.setState({attractions})
-    setTimeout(() => {console.log(this.state.attractions)}, 1000)
+    this.setState(
+        {attractions: attractions,
+         clearInfoWindows: true})
+    this.showMarkers()
+    // setTimeout(() => {console.log(this.state.attractions)}, 1000)
   }
 
+  showMarkers() {
+    this.setState({clearInfoWindows: false})
+  }
 
   render() {
     return (
@@ -35,12 +42,13 @@ class App extends Component {
         />
 
         <MapView
-          defaultLocation={{lat:28.417664 , lng: -81.581215}}
-          defaultZoom={15}
+          defaultLocation={{lat:28.418744, lng:-81.581203}}
+          defaultZoom={16}
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
           markersLocation={this.state.markersLocation}
           markers={this.state.attractions}
+          clearMarkers={this.state.clearInfoWindows}
         />
       </div>
     );

@@ -46,7 +46,7 @@ class MapView extends Component {
                         position={position}
                         onClick={() => this.loadData(position, this.props.markers[i], i)}
                     />
-                    {(this.state.isOpenIndex === i) &&
+                    {(this.state.isOpenIndex === i) && (this.props.clearMarkers !== true) &&
                        <InfoWindowView
                             location={position}
                             marker={this.props.markers[i]}
