@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {InfoWindow} from 'react-google-maps';
-// import FourSquareInfo from './FourSquareInfo.js'
+
 
 // InfoWindows on markers
 class InfoWindowView extends Component {
+
+
 
     render() {
 
@@ -14,7 +16,7 @@ class InfoWindowView extends Component {
             >
                 <div className="thewindow">
                     <div>{this.props.marker.name}</div>
-                    <div className="4squareInfo">{this.props.dataToDisplay.response.venues[0].id}</div>
+                    <div className="4squareInfo">{this.props.rating}</div>
                 </div>
             </InfoWindow>
         )
