@@ -8,9 +8,9 @@ const tokens = {
 let searchResults;
 
 export const getDetails = (location, marker) => {
-    fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&name=${marker.name}&client_id=${this.state.clientID}&client_secret=${this.tokens.clientSecret}&v=20180927&intent=match`)
+    fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&name=${marker.name}&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927&intent=match`)
         .then( (response) => response.json() )
-        .then( (jsonResponse) => (this.searchResults = jsonResponse) )
+        .then( (jsonResponse) => (searchResults = jsonResponse) )
         .catch( (err) => console.log(err) )
 }
 
