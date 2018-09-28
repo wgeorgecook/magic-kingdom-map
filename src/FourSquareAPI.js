@@ -6,10 +6,14 @@ const tokens = {
 };
 
 
-export const getDetails = (location, marker) =>
+export const getID = (location, marker) =>
     fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&name=${marker.name}&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927&intent=match`)
         .then( (response) => response.json() )
-        .then( (jsonResponse) => (jsonResponse) )
+        .then( (jsonResponse) => (jsonResponse.response.venues[0].id) )
         .catch( (err) => console.log(err) )
 
-
+export const getDetails = (id) =>
+    fetch(`https://api.foursquare.com/v2/venues/${id}?&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927`)
+        .then( (response) => response.json() )
+        .then( (jsonResponse) => (jsonResponse.response.venue.rating))
+        .catch( (err) => console.log(err) )
