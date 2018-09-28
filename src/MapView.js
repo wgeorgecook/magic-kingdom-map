@@ -6,7 +6,8 @@ import InfoWindowView from './InfoWindowView.js';
 class MapView extends Component {
 
     state = {
-        isOpenIndex: null
+        isOpenIndex: null,
+        loadedData: null
     }
 
     markers = this.props.markersLocation;
@@ -17,6 +18,11 @@ class MapView extends Component {
 
     nullState = () => {
         this.setState({isOpenIndex: null})
+    }
+
+    showData = (data) => {
+        this.setState({loadedData: data})
+        console.log(this.state.loadedData)
     }
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
@@ -35,6 +41,8 @@ class MapView extends Component {
                             location={position}
                             marker={this.props.markers[i]}
                             closeClick={this.nullState}
+                            // onLoadApi={this.showData}
+                            // dataToDisplay={this.state.loadedData}
                         />
                     }
 
