@@ -3,7 +3,7 @@ import LocationFilter from './LocationFilter.js';
 
 class ListView extends Component {
 
-    rides = this.props.attractions.rides
+    rides = this.props.attractions
 
     state = {
         filter: "All"
@@ -15,10 +15,16 @@ class ListView extends Component {
     }
 
     newMarkers = (category) => {
-        let markers;
-        (category === "All") ?
-            markers = this.rides.map( (ride) => ride.location ) : // pass all markers or filtered markers
-            markers = this.rides.filter( (ride) => ride.category.includes(category)).map( (ride) => ride.location )
+        let markers, newLocations;
+        if (category === "All") {
+            newLocations = this.rides.map( (ride) => ride.location );
+            markers = this.rides // pass all markers or filtered markers
+        } else {
+            newLocations = this.rides.filter( (ride) => ride.category.includes(category)).map( (ride) => ride.location )
+            markers = this.rides.filter( (ride) => ride.category.includes(category)).map( (ride) => ride)
+        }
+
+        this.props.onNewMarkersLocations(newLocations)
         this.props.onNewMarkers(markers)
     }
 

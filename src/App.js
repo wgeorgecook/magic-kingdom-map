@@ -9,21 +9,28 @@ class App extends Component {
   allMarkersData = this.data.rides.map( ride => ride )
 
   state = {
-    updated: false,
-    attractions: [],
+    attractions: this.allMarkersData,
     markersLocation: this.allMarkersLocation
   }
 
-  newMarkers = (markerArray) => {
+  newMarkersLocations = (markerArray) => {
     // console.log(markerArray)
     this.setState({markersLocation: markerArray})
+    //setTimeout(() => {console.log(this.state.markersLocation)}, 1000)
   }
+
+  newMarkers = (attractions) => {
+    this.setState({attractions})
+    setTimeout(() => {console.log(this.state.attractions)}, 1000)
+  }
+
 
   render() {
     return (
       <div className="App">
         <ListView
-          attractions={this.data}
+          attractions={this.state.attractions}
+          onNewMarkersLocations={this.newMarkersLocations}
           onNewMarkers={this.newMarkers}
         />
 
@@ -33,7 +40,7 @@ class App extends Component {
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
           markersLocation={this.state.markersLocation}
-          markers={this.allMarkersData}
+          markers={this.state.attractions}
         />
       </div>
     );

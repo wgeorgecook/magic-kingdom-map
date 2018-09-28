@@ -40,7 +40,7 @@ class MapView extends Component {
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
             >
-            {props.isMarkerShown && this.props.markersLocation.map( (position, i) =>
+            {props.isMarkerShown && this.props.markersLocation.map( (position, i) => // Fix this to dynamically load marker index
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={position}
