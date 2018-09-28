@@ -16,7 +16,11 @@ class InfoWindowView extends Component {
             >
                 <div className="thewindow">
                     <div>Attraction: {this.props.marker.name}</div>
-                    <div className="4squareInfo">Rating: {this.props.rating}</div>
+                    {(this.props.rating) ?
+                        <div className="4squareInfo">Rating: {this.props.rating}</div> :
+                        <div className="4squareInfo">Loading rating...</div>
+                    }
+
                 </div>
             </InfoWindow>
         )
