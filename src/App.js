@@ -47,7 +47,10 @@ class App extends Component {
           animate={this.animateMarker}
         />
 
-        <RideDetail />
+        <RideDetail
+          attractions={this.state.attractions}
+          selected={this.state.blueMarker}
+        />
       </div>
     );
   }
