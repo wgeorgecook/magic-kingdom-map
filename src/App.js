@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListView from './ListView.js';
 import MapView from './MapView.js';
 import './App.css';
+import './blue-dot.png'
 
 class App extends Component {
   data = require('./data.json');
@@ -15,9 +16,7 @@ class App extends Component {
   }
 
   newMarkersLocations = (markerArray) => {
-    // console.log(markerArray)
     this.setState({markersLocation: markerArray})
-    //setTimeout(() => {console.log(this.state.markersLocation)}, 1000)
   }
 
   newMarkers = (attractions) => {
@@ -25,11 +24,14 @@ class App extends Component {
         {attractions: attractions,
          clearInfoWindows: true})
     this.showMarkers()
-    // setTimeout(() => {console.log(this.state.attractions)}, 1000)
   }
 
   showMarkers() {
     this.setState({clearInfoWindows: false})
+  }
+
+  animateMarker = (id) => {
+    console.log(id)
   }
 
   render() {
@@ -40,6 +42,7 @@ class App extends Component {
           attractions={this.state.attractions}
           onNewMarkersLocations={this.newMarkersLocations}
           onNewMarkers={this.newMarkers}
+          animate={this.animateMarker}
         />
 
         <MapView

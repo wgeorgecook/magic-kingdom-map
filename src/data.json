@@ -5,70 +5,80 @@
             "category": ["Slow", "Dark"],
             "averageWait": "30 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4183724, "lng":-81.579222}
+            "location": {"lat":28.4183724, "lng":-81.579222},
+            "id": "001"
         },
         {
             "name": "Big Thunder Mountain Railroad",
             "category": ["Thrill", "Coaster"],
             "averageWait": "45 minutes",
             "minimumHeight": "40 inches",
-            "location": {"lat": 28.4199215, "lng":-81.5846279}
+            "location": {"lat": 28.4199215, "lng":-81.5846279},
+            "id": "002"
         },
         {
             "name": "Monster's Inc. Laugh Floor",
             "category": ["Slow", "Show"],
             "averageWait": "30 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4185408, "lng":-81.5796865}
+            "location": {"lat":28.4185408, "lng":-81.5796865},
+            "id": "003"
         },
         {
             "name": "Haunted Mansion",
             "category": "Dark",
             "averageWait": "45 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4201146, "lng":-81.5829729}
+            "location": {"lat":28.4201146, "lng":-81.5829729},
+            "id": "004"
         },
         {
             "name": "Jungle Cruise",
             "category": ["Slow"],
             "averageWait": "30 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4180439, "lng":-81.583611}
+            "location": {"lat":28.4180439, "lng":-81.583611},
+            "id": "005"
         },
         {
             "name": "It's A Small World",
             "category": ["Slow"],
             "averageWait": "45 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4204762, "lng":-81.5821544}
+            "location": {"lat":28.4204762, "lng":-81.5821544},
+            "id": "006"
         },
         {
             "name": "Peter Pan's Flight",
             "category": ["Slow", "Dark"],
             "averageWait": "60 minutes",
             "minimumHeight": "None",
-            "location": {"lat":28.4203774, "lng":-81.5820862 }
+            "location": {"lat":28.4203774, "lng":-81.5820862 },
+            "id": "007"
         },
         {
             "name": "Pirates of the Carribean",
             "category": ["Thrill", "Dark"],
             "averageWait": "30 minutes",
             "minimumHeight": "None",
-            "location": {"lat": 28.4181882, "lng":-81.5842635}
+            "location": {"lat": 28.4181882, "lng":-81.5842635},
+            "id": "008"
         },
         {
             "name": "Space Mountain",
             "category": ["Thrill", "Coaster"],
             "averageWait": "60 minutes",
             "minimumHeight": "44 inches",
-            "location": {"lat":28.4188145, "lng":-81.5787233}
+            "location": {"lat":28.4188145, "lng":-81.5787233},
+            "id": "009"
         },
         {
             "name": "Splash Mountain",
             "category": ["Thrill"],
             "averageWait": "45 minutes",
             "minimumHeight": "40 inches",
-            "location": {"lat":28.4193586, "lng":-81.5848516}
+            "location": {"lat":28.4193586, "lng":-81.5848516},
+            "id": "010"
         }
     ]
 }
