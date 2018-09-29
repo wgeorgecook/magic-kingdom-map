@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LocationFilter from './LocationFilter.js';
 
+
 class ListView extends Component {
 
     rides = this.props.attractions
@@ -25,6 +26,9 @@ class ListView extends Component {
         this.props.onNewMarkers(markers)
     }
 
+
+
+
     render() {
         return (
             <div id="list-view">
@@ -43,7 +47,7 @@ class ListView extends Component {
                             <li
                                 key={ride.id}
                                 className="list-item"
-                                onClick={() => this.props.animate(ride.id)}
+                                onClick={ () => this.props.animate(ride.id) }
                             >
                                 {ride.name}
                             </li>)
