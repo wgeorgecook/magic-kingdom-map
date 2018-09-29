@@ -8,7 +8,7 @@ class MapView extends Component {
 
     state = {
         isOpenIndex: null,
-        rating: null
+        rating: null,
     }
 
     markers = this.props.markers;
@@ -32,8 +32,13 @@ class MapView extends Component {
     }
 
     nullState = () => {
-        this.setState({isOpenIndex: null})
-        this.setState({rating: false})
+        this.setState(
+            {
+                isOpenIndex: null,
+                rating: false,
+                blueMarker: null
+            }
+        )
     }
 
 
@@ -42,11 +47,12 @@ class MapView extends Component {
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
             >
-            {props.isMarkerShown && this.props.markers.map( (marker, i) => // Fix this to dynamically load marker index
+            {props.isMarkerShown && this.props.markers.map( (marker, i) =>
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={marker.location}
                         onClick={() => this.loadData(marker.location, marker, marker.id)}
+                        icon={(this.props.blueMarker === marker.id) ? this.props.blueIcon : undefined}
                     />
                     {(this.state.isOpenIndex === marker.id) && (this.props.clearMarkers !== true) &&
                        <InfoWindowView
