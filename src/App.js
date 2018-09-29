@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListView from './ListView.js';
 import MapView from './MapView.js';
+import RideDetail from './RideDetail.js'
 import './App.css';
 import './blue-dot.png'
 
@@ -29,21 +30,24 @@ class App extends Component {
     return (
       <div className="App">
       <h1>Welcome to the Magic Kingdom!</h1>
+
+        <MapView
+          defaultLocation={{lat:28.419529, lng:-81.581192}}
+          defaultZoom={16}
+          defaultHeight={'250px'}
+          defaultMarkers={{lat:28.417664 , lng: -81.581215}}
+          markers={this.state.attractions}
+          blueIcon={this.blueIcon}
+          blueMarker={this.state.blueMarker}
+        />
+
         <ListView
           attractions={this.state.attractions}
           onNewMarkers={this.newMarkers}
           animate={this.animateMarker}
         />
 
-        <MapView
-          defaultLocation={{lat:28.418744, lng:-81.581203}}
-          defaultZoom={16}
-          defaultHeight={'400px'}
-          defaultMarkers={{lat:28.417664 , lng: -81.581215}}
-          markers={this.state.attractions}
-          blueIcon={this.blueIcon}
-          blueMarker={this.state.blueMarker}
-        />
+        <RideDetail />
       </div>
     );
   }
