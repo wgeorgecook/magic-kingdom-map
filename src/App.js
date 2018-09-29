@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   doThings = (ride) => {
-    // this.animateMarker(ride);
+    this.animateMarker(ride);
     this.getFourInfo(ride)
   }
 
