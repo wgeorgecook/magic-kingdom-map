@@ -47,21 +47,21 @@ class ListView extends Component {
                 <ul id='list-locations'>
                     { (this.state.filter !== "All") ?
                         this.rides.filter( (ride) => ride.category.includes(this.state.filter)).map((ride) =>
-                            <li
+                            <button
                                 key={ride.id}
                                 className="list-item"
                                 onClick={() => this.props.animate(ride)}
                             >
                                 {ride.name}
-                            </li>) :
+                            </button>) :
                         this.rides.map((ride) =>
-                            <li
+                            <button
                                 key={ride.id}
                                 className="list-item"
                                 onClick={ () => this.props.animate(ride) }
                             >
                                 {ride.name}
-                            </li>)
+                            </button>)
                     }
                 </ul>
 
