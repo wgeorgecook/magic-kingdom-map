@@ -6,29 +6,18 @@ import './blue-dot.png'
 
 class App extends Component {
   data = require('./data.json');
-  allMarkersLocation = this.data.rides.map( (ride) => ride.location )
   allMarkersData = this.data.rides.map( ride => ride )
 
   state = {
     attractions: this.allMarkersData,
-    markersLocation: this.allMarkersLocation,
     clearInfoWindows: false
-  }
-
-  newMarkersLocations = (markerArray) => {
-    this.setState({markersLocation: markerArray})
   }
 
   newMarkers = (attractions) => {
     this.setState(
-        {attractions: attractions,
-         clearInfoWindows: true})
-    this.showMarkers()
+        {attractions: attractions})
   }
 
-  showMarkers() {
-    this.setState({clearInfoWindows: false})
-  }
 
   animateMarker = (id) => {
     console.log(id)
@@ -40,7 +29,6 @@ class App extends Component {
       <h1>Welcome to the Magic Kingdom!</h1>
         <ListView
           attractions={this.state.attractions}
-          onNewMarkersLocations={this.newMarkersLocations}
           onNewMarkers={this.newMarkers}
           animate={this.animateMarker}
         />
@@ -50,9 +38,7 @@ class App extends Component {
           defaultZoom={16}
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
-          markersLocation={this.state.markersLocation}
           markers={this.state.attractions}
-          clearMarkers={this.state.clearInfoWindows}
         />
       </div>
     );
