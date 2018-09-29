@@ -42,7 +42,7 @@
         },
         {
             "name": "Seven Dwarf's Mine Train",
-            "category": ["Coaster, Dark"],
+            "category": ["Coaster", "Dark"],
             "averageWait": "90 minutes",
             "minimumHeight": "90 inches",
             "location": {"lat":28.420422, "lng":-81.580452},
