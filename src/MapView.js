@@ -11,16 +11,18 @@ class MapView extends Component {
         rating: null
     }
 
-    markers = this.props.markersLocation;
+    markers = this.props.markers;
 
     loadData(position, marker, index){
+
         this.nullState()
+
         FourAPI.getID(position, marker)
             .then( (id) =>
                 FourAPI.getDetails(id)
                 .then( (rating) => this.setState( {rating} ) )
-                // .then(console.log(this))
                 )
+
         this.toggleBox(index)
     }
 
@@ -40,16 +42,16 @@ class MapView extends Component {
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
             >
-            {props.isMarkerShown && this.props.markersLocation.map( (position, i) => // Fix this to dynamically load marker index
+            {props.isMarkerShown && this.props.markers.map( (marker, i) => // Fix this to dynamically load marker index
                 <div key={i} className="markers-and-infobox">
                     <Marker
-                        position={position}
-                        onClick={() => this.loadData(position, this.props.markers[i], i)}
+                        position={marker.location}
+                        onClick={() => this.loadData(marker.location, marker, marker.id)}
                     />
-                    {(this.state.isOpenIndex === i) && (this.props.clearMarkers !== true) &&
+                    {(this.state.isOpenIndex === marker.id) && (this.props.clearMarkers !== true) &&
                        <InfoWindowView
-                            location={position}
-                            marker={this.props.markers[i]}
+                            location={marker.location}
+                            marker={marker}
                             closeClick={this.nullState}
                             rating={this.state.rating}
                         />
