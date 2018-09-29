@@ -47,3 +47,26 @@ h1 {
   margin: auto;
   margin-bottom: 1em;
 }
+
+
+.rideItems {
+  display: grid;
+  grid-template: "image   name"
+                 "image   desc"
+                 "image  rating"
+}
+.rideImg {
+  grid-area: image;
+}
+
+.rideName {
+  grid-area: name;
+}
+
+.rideDesc {
+  grid-area: desc;
+}
+
+.rideRating {
+  grid-area: rating;
+}
