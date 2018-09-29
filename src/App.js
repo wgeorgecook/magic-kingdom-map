@@ -7,10 +7,12 @@ import './blue-dot.png'
 class App extends Component {
   data = require('./data.json');
   allMarkersData = this.data.rides.map( ride => ride )
+  blueIcon = require('./blue-dot.png')
 
   state = {
     attractions: this.allMarkersData,
-    clearInfoWindows: false
+    clearInfoWindows: false,
+    blueMarker: null
   }
 
   newMarkers = (attractions) => {
@@ -20,7 +22,7 @@ class App extends Component {
 
 
   animateMarker = (id) => {
-    console.log(id)
+    this.setState({blueMarker: id})
   }
 
   render() {
@@ -39,6 +41,8 @@ class App extends Component {
           defaultHeight={'400px'}
           defaultMarkers={{lat:28.417664 , lng: -81.581215}}
           markers={this.state.attractions}
+          blueIcon={this.blueIcon}
+          blueMarker={this.state.blueMarker}
         />
       </div>
     );
