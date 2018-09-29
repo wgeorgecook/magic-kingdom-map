@@ -13,17 +13,20 @@ class MapView extends Component {
 
     markers = this.props.markers;
 
-    loadData(position, marker, index){
+    loadData(marker){
 
         this.nullState()
 
-        FourAPI.getID(position, marker)
-            .then( (id) =>
-                FourAPI.getDetails(id)
-                .then( (rating) => this.setState( {rating} ) )
-                )
+        FourAPI.getID(marker.location, marker)
+            .then(id => FourAPI.getDetails(id)
+            .then(attraction => this.setState(
+                {
+                    rating: attraction.rating
+                }
+                ))
+            )
 
-        this.toggleBox(index)
+        this.toggleBox(marker.id)
     }
 
 
@@ -51,7 +54,7 @@ class MapView extends Component {
                 <div key={i} className="markers-and-infobox">
                     <Marker
                         position={marker.location}
-                        onClick={() => this.loadData(marker.location, marker, marker.id)}
+                        onClick={() => this.loadData(marker)}
                         icon={(this.props.blueMarker === marker.id) ? this.props.blueIcon : undefined}
                     />
                     {(this.state.isOpenIndex === marker.id) && (this.props.clearMarkers !== true) &&

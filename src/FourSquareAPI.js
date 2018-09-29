@@ -15,6 +15,7 @@ export const getID = (location, marker) =>
 
 export const getDetails = (id) =>
     fetch(`https://api.foursquare.com/v2/venues/${id}?&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927`)
+        // .then(console.log(`https://api.foursquare.com/v2/venues/${id}?&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927`))
         .then( (response) => response.json() )
-        .then( (jsonResponse) => (jsonResponse.response.venue.rating))
+        .then( (jsonResponse) => (jsonResponse.response.venue))
         .catch( (err) => "Cannont find rating")
