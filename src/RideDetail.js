@@ -17,7 +17,7 @@ class RideDetail extends Component {
                 {(this.props.apiData.description && <div className="rideDesc">Description: {this.props.apiData.description}</div> )}
                 <div className="rideRating">Rating: {this.props.apiData.rating}</div>
             </div> :
-            <div>Select a ride to see more!</div>
+            <div className="noRide">Select a ride to see more!</div>
         )
     }
 }
