@@ -35,9 +35,9 @@ class ListView extends Component {
                 <ul id='list-locations'>
                     { (this.state.filter !== "All") ?
                         this.rides.filter( (ride) => ride.category.includes(this.state.filter)).map((ride,i) =>
-                            <li key={i}> {ride.name} </li>) :
+                            <li key={i} className="list-item"> {ride.name} </li>) :
                         this.rides.map((ride,i) =>
-                            <li key={i}> {ride.name} </li>)
+                            <li key={i} className="list-item"> {ride.name} </li>)
                     }
                 </ul>
 

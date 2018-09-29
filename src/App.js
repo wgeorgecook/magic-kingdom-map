@@ -35,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>Welcome to the Magic Kingdom!</h1>
         <ListView
           attractions={this.state.attractions}
           onNewMarkersLocations={this.newMarkersLocations}
