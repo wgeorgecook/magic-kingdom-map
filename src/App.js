@@ -15,7 +15,8 @@ class App extends Component {
     attractions: this.allMarkersData,
     clearInfoWindows: false,
     blueMarker: null,
-    rideDetail: null
+    rideDetail: null,
+    attractionData: null
   }
 
   getFourInfo(marker) {
@@ -57,6 +58,7 @@ class App extends Component {
         <RideDetail
           attractions={this.state.attractions}
           selected={this.state.blueMarker}
+          getInfo={this.getFourInfo}
         />
       </div>
     );
