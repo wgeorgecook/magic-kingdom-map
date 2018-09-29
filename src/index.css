@@ -14,17 +14,17 @@ h1 {
 }
 
 #list-view {
-  height: 350px;
+  height: 250px;
   margin: auto;
 }
 
 #list-locations {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 1em;
   grid-row-gap: .5em;
   padding: 1em;
-  width: 40%;
+  width: 45%;
   padding-left: 0;
   margin: auto;
   list-style-type: none;
