@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListView from './ListView.js';
 import MapView from './MapView.js';
 import RideDetail from './RideDetail.js'
+import * as FourAPI from './FourSquareAPI.js';
 import './App.css';
 import './blue-dot.png'
 
@@ -13,7 +14,12 @@ class App extends Component {
   state = {
     attractions: this.allMarkersData,
     clearInfoWindows: false,
-    blueMarker: null
+    blueMarker: null,
+    rideDetail: null
+  }
+
+  getFourInfo(marker) {
+    FourAPI.getID(marker.location, marker).then(id => FourAPI.getDetails(id).then(attraction => attraction))
   }
 
   newMarkers = (attractions) => {
@@ -39,6 +45,7 @@ class App extends Component {
           markers={this.state.attractions}
           blueIcon={this.blueIcon}
           blueMarker={this.state.blueMarker}
+          getInfo={this.getFourInfo}
         />
 
         <ListView
