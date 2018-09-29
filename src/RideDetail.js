@@ -6,7 +6,7 @@ class RideDetail extends Component {
 
     render() {
         return (
-            (this.props.apiData) &&
+            (this.props.apiData) ?
             <div className="rideItems">
                 <img
                     alt={`${this.props.apiData.name}`}
@@ -15,7 +15,8 @@ class RideDetail extends Component {
                 <div>Name: {this.props.apiData.name}</div>
                 {(this.props.apiData.description && <div>Description: {this.props.apiData.description}</div> )}
                 <div>Rating: {this.props.apiData.rating}</div>
-            </div>
+            </div> :
+            <div>Select a ride to see more!</div>
         )
     }
 }
