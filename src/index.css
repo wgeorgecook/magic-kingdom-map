@@ -5,31 +5,45 @@ body {
   background-color: #edf6fb
 }
 
-li {
-  height: 20px;
-  width: 75%;
+h1 {
   background-color: white;
+  color: #edf6fb;
+  margin: .5em auto;
+  padding: .5em;
+  width: 80%;
+}
+
+#list-view {
+  height: 350px;
   margin: auto;
 }
-#map {
+
+#list-locations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: .5em;
+  padding: 1em;
+  width: 40%;
+  padding-left: 0;
   margin: auto;
+  list-style-type: none;
+}
+
+.list-item {
+  background-color: white;
+  border: white solid;
+  box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
+  margin-top: .25em;
 }
 
 #filter {
   width: 45%;
-  padding: .5em;
-  margin: auto;
 }
 
-#list-view {
+
+#map {
   width: 80%;
-  height: 300px;
-}
-
-#list-locations {
-  height: 80%;
   margin: auto;
-  list-style-type: none;
-  padding: .25em;
+  margin-bottom: 1em;
 }
-
