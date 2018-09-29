@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LocationFilter from './LocationFilter.js';
+import RideDetail from './RideDetail.js';
+import * as FourAPI from './FourSquareAPI.js';
 
 
 class ListView extends Component {
@@ -26,7 +28,16 @@ class ListView extends Component {
         this.props.onNewMarkers(markers)
     }
 
-
+    loadData = (marker) => {
+        FourAPI.getID(marker.location, marker)
+        .then(id => FourAPI.getDetails(id)
+        .then(attraction => this.setState(
+            {
+                rating: attraction.rating
+            }
+            ))
+        )
+    }
 
 
     render() {
@@ -39,7 +50,7 @@ class ListView extends Component {
                             <li
                                 key={ride.id}
                                 className="list-item"
-                                onClick={() => this.props.animate(ride.id)}
+                                onClick={() => this.props.animate(ride)}
                             >
                                 {ride.name}
                             </li>) :
@@ -47,7 +58,7 @@ class ListView extends Component {
                             <li
                                 key={ride.id}
                                 className="list-item"
-                                onClick={ () => this.props.animate(ride.id) }
+                                onClick={ () => this.props.animate(ride) }
                             >
                                 {ride.name}
                             </li>)
@@ -57,6 +68,13 @@ class ListView extends Component {
                 <LocationFilter
                     attractions={this.props.attractions}
                     onNewFilter={this.newFilter}
+                />
+
+                <RideDetail
+                    attractions={this.props.attractions}
+                    selectedID={this.props.blueMarker}
+                    getInfo={this.loadData}
+                    apiData={this.props.apiData}
                 />
 
             </div>

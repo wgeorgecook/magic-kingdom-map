@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ListView from './ListView.js';
 import MapView from './MapView.js';
-import RideDetail from './RideDetail.js'
 import * as FourAPI from './FourSquareAPI.js';
 import './App.css';
 import './blue-dot.png'
@@ -14,13 +13,17 @@ class App extends Component {
   state = {
     attractions: this.allMarkersData,
     clearInfoWindows: false,
-    blueMarker: null,
-    rideDetail: null,
-    attractionData: null
+    blueMarker: '',
+    rideDetail: '',
+    attractionData: ''
   }
 
-  getFourInfo(marker) {
-    FourAPI.getID(marker.location, marker).then(id => FourAPI.getDetails(id).then(attraction => attraction))
+  getFourInfo = (marker) => {
+
+    FourAPI.getID(marker.location, marker)
+      .then(id => FourAPI.getDetails(id)
+      .then(attraction => this.setState({attractionData: attraction})))
+
   }
 
   newMarkers = (attractions) => {
@@ -28,9 +31,13 @@ class App extends Component {
         {attractions: attractions})
   }
 
+  animateMarker = (ride) => {
+    this.setState({blueMarker: ride.id})
+  }
 
-  animateMarker = (id) => {
-    this.setState({blueMarker: id})
+  doThings = (ride) => {
+    // this.animateMarker(ride);
+    this.getFourInfo(ride)
   }
 
   render() {
@@ -52,14 +59,11 @@ class App extends Component {
         <ListView
           attractions={this.state.attractions}
           onNewMarkers={this.newMarkers}
-          animate={this.animateMarker}
+          animate={this.doThings}
+          blueMarker={this.state.blueMarker}
+          apiData={this.state.attractionData}
         />
 
-        <RideDetail
-          attractions={this.state.attractions}
-          selected={this.state.blueMarker}
-          getInfo={this.getFourInfo}
-        />
       </div>
     );
   }
