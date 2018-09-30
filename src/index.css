@@ -97,6 +97,7 @@ h1 {
 }
 .attribution {
   grid-area: attrib;
+  margin: auto;
 }
 
 .noRide {
@@ -129,7 +130,8 @@ h1 {
     display: grid;
     grid-template: "image  name"
                    "image  rating"
-                   "image  desc";
+                   "image  desc"
+                   "attribImg attrib";
     grid-column-gap: 1em;
     grid-row-gap: .5em;
     width: 80%;
@@ -159,6 +161,18 @@ h1 {
     grid-area: rating;
     margin: 0;
   }
+
+  .attributionImage {
+    grid-area: attribImg;
+    margin: 0;
+    max-width: 33%;
+  }
+
+  .attribution {
+    grid-area: attrib;
+    margin: 0;
+  }
+
 }
 
 /* Desktops */
@@ -180,7 +194,8 @@ h1 {
     display: grid;
     grid-template: "image  name"
                    "image  rating"
-                   "image  desc";
+                   "image  desc"
+                   "attribImg attrib";
     grid-column-gap: 1em;
     grid-row-gap: .5em;
     max-width: 800px;
@@ -190,5 +205,37 @@ h1 {
     background-color: #edf6fb;
     box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
   }
+
+  .rideImg {
+    grid-area: image;
+    margin: auto;
+  }
+
+  .rideName {
+    grid-area: name;
+    margin: auto;
+  }
+
+  .rideDesc {
+    grid-area: desc;
+    margin: auto;
+  }
+
+  .rideRating {
+    grid-area: rating;
+    margin: auto;
+  }
+
+  .attributionImage {
+    grid-area: attribImg;
+    margin: auto;
+    max-width: 33%;
+  }
+
+  .attribution {
+    grid-area: attrib;
+    margin: auto;
+  }
+
 
 }
