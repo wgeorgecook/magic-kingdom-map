@@ -53,6 +53,7 @@ class MapView extends Component {
             {props.isMarkerShown && this.props.markers.map( (marker, i) =>
                 <div key={i} className="markers-and-infobox">
                     <Marker
+                        containerProps={{tabIndex: 0}}
                         position={marker.location}
                         onClick={() => this.loadData(marker)}
                         icon={(this.props.blueMarker === marker.id) ? this.props.blueIcon : undefined}
