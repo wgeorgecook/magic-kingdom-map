@@ -46,6 +46,7 @@ class App extends Component {
       <h1>Welcome to the Magic Kingdom!</h1>
 
         <MapView
+          role="application"
           defaultLocation={{lat:28.419529, lng:-81.581192}}
           defaultZoom={16}
           defaultHeight={'250px'}
