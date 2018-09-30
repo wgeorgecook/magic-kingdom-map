@@ -11,7 +11,7 @@ h1 {
   color: #3d6dc8;
   margin: .5em auto;
   padding: .5em;
-  width: 80%;
+  width: 95%;
   box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
 }
 
@@ -22,10 +22,9 @@ h1 {
 
 #list-locations {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
   grid-row-gap: .5em;
-  padding: 1em;
   width: 80%;
   padding-left: 0;
   margin: auto;
@@ -36,11 +35,13 @@ h1 {
   background-color: #edf6fb;
   border: white solid;
   box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
-  margin-top: .25em;
 }
 
 #filter {
+  display: block;
   width: 45%;
+  margin: auto;
+  min-height: 45px;
 }
 
 
@@ -54,33 +55,37 @@ h1 {
 
 .rideItems {
   display: grid;
-  grid-template:
-                  "image  name"
-                 "image  rating"
-                 "image  desc";
+  grid-template: "image"
+                 "name"
+                 "rating"
+                 "desc";
   grid-column-gap: 1em;
   grid-row-gap: .5em;
-  width: 80%;
+  width: 95%;
   margin: 1em auto 1em;
   margin-top: 1em;
-  padding: 1em;
+  padding: .5em;
   background-color: #edf6fb;
   box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
 }
 .rideImg {
   grid-area: image;
+  margin: auto;
 }
 
 .rideName {
   grid-area: name;
+  margin: auto;
 }
 
 .rideDesc {
   grid-area: desc;
+  margin: auto;
 }
 
 .rideRating {
   grid-area: rating;
+  margin: auto;
 }
 
 .noRide {
@@ -88,4 +93,56 @@ h1 {
   margin: 1em auto 1em;
   padding: 1em;
   background-color:  #edf6fb;
+}
+
+/*************** Tablets ***************/
+
+@media screen and (min-width: 415){
+
+  #list-locations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: .5em;
+    padding: 1em;
+    width: 80%;
+    padding-left: 0;
+    margin: auto;
+    list-style-type: none;
+  }
+
+
+  .rideItems {
+    display: grid;
+    grid-template:
+                    "image  name"
+                   "image  rating"
+                   "image  desc";
+    grid-column-gap: 1em;
+    grid-row-gap: .5em;
+    width: 80%;
+    margin: 1em auto 1em;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #edf6fb;
+    box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
+  }
+
+  .rideImg {
+    grid-area: image;
+  }
+
+  .rideName {
+    grid-area: name;
+  }
+
+  .rideDesc {
+    grid-area: desc;
+    margin: auto;
+  }
+
+  .rideRating {
+    grid-area: rating;
+    margin: auto;
+  }
 }
