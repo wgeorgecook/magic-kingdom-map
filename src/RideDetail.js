@@ -10,7 +10,7 @@ class RideDetail extends Component {
             <div className="rideItems">
                 <img
                     className="rideImg"
-                    alt={`${this.props.apiData.name}`}
+                    alt={`Photo of ${this.props.apiData.name} taken by Foursquare user ${this.props.apiData.photos.groups[1].items[0].user.firstName} ${this.props.apiData.photos.groups[1].items[0].user.lastName}`}
                     src={`${this.props.apiData.photos.groups[1].items[0].prefix}cap300${this.props.apiData.photos.groups[1].items[0].suffix}`}
                 />
                 <div className="rideName">Name: {this.props.apiData.name}</div>
