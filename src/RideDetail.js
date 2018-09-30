@@ -8,9 +8,10 @@ class RideDetail extends Component {
         return (
             (this.props.apiData) ?
             <div className="rideItems">
+                <img className="attributionImage" alt="powered by Foursquare" src="./powered-by-foursquare-blue.png" />
                 <img
                     className="rideImg"
-                    alt={`Photo of ${this.props.apiData.name} taken by Foursquare user ${this.props.apiData.photos.groups[1].items[0].user.firstName} ${this.props.apiData.photos.groups[1].items[0].user.lastName}`}
+                    alt={`Snapshot of ${this.props.apiData.name} taken by Foursquare user ${this.props.apiData.photos.groups[1].items[0].user.firstName} ${this.props.apiData.photos.groups[1].items[0].user.lastName}`}
                     src={`${this.props.apiData.photos.groups[1].items[0].prefix}cap300${this.props.apiData.photos.groups[1].items[0].suffix}`}
                 />
                 <div className="rideName">Name: {this.props.apiData.name}</div>
