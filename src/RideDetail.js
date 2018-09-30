@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import './powered-by-foursquare-blue.png'
 
 class RideDetail extends Component {
 
-
+    attrib = require('./powered-by-foursquare-blue.png')
 
     render() {
         return (
             (this.props.apiData) ?
             <div className="rideItems">
-                <img className="attributionImage" alt="powered by Foursquare" src="./powered-by-foursquare-blue.png" />
+                <img className="attributionImage" alt="powered by Foursquare" src={this.attrib} />
                 <img
                     className="rideImg"
                     alt={`Snapshot of ${this.props.apiData.name} taken by Foursquare user ${this.props.apiData.photos.groups[1].items[0].user.firstName} ${this.props.apiData.photos.groups[1].items[0].user.lastName}`}
