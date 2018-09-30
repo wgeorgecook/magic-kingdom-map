@@ -15,6 +15,11 @@ h1 {
   box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
 }
 
+button:hover, button:focus {
+  background-color: #3d6dc8;
+  color: #edf6fb;
+}
+
 #list-view {
   height: 250px;
   margin: auto;
