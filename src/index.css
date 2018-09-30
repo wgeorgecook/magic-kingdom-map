@@ -59,7 +59,9 @@ h1 {
   grid-template: "image"
                  "name"
                  "rating"
-                 "desc";
+                 "desc"
+                 "attrib"
+                 "attribImg";
   grid-column-gap: 1em;
   grid-row-gap: .5em;
   width: 95%;
@@ -68,6 +70,11 @@ h1 {
   padding: .5em;
   background-color: #edf6fb;
   box-shadow: 1px 9px 30px -10px rgba(0,0,0,0.75);
+}
+.attributionImage {
+  grid-area: attribImg;
+  margin: auto;
+  max-width: 33%;
 }
 .rideImg {
   grid-area: image;
@@ -87,6 +94,9 @@ h1 {
 .rideRating {
   grid-area: rating;
   margin: auto;
+}
+.attribution {
+  grid-area: attrib;
 }
 
 .noRide {
