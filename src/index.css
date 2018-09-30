@@ -50,6 +50,10 @@ button:hover, button:focus {
   min-height: 45px;
 }
 
+#filter:focus {
+  border: #edf6fb solid 2px;
+}
+
 
 #map {
   width: 100%;
