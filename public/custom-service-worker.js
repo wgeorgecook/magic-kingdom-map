@@ -1,7 +1,9 @@
-self.addEventListener('install', function(event) {
+// Custom service worker
 
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('castle-cache').then(function(cache) {
+      console.log("Cache open!")
       return cache.addAll([
           '/favicon.ico',
           '/index.html'
@@ -13,8 +15,7 @@ self.addEventListener('install', function(event) {
 
 // Thanks to the Google Developers Tutorials for helping me understand cache.put!
 // https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
-// Code modified to use the recommended cache.add, as well as to return
-// offline.html if no cached asset found.
+// Code modified to use the recommended cache.add.
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
