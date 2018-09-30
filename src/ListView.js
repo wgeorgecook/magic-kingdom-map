@@ -66,6 +66,7 @@ class ListView extends Component {
                 </ul>
 
                 <LocationFilter
+                    role="listbox"
                     attractions={this.props.attractions}
                     onNewFilter={this.newFilter}
                 />
