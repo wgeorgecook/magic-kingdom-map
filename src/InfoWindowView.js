@@ -11,6 +11,7 @@ class InfoWindowView extends Component {
 
         return (
             <InfoWindow
+                role="application"
                 defaultPosition={this.props.location}
                 onCloseClick={this.props.closeClick}
             >
