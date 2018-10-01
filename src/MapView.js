@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
+import ErrorBoundary from './errorBoundary.js'
 import InfoWindowView from './InfoWindowView.js';
 import * as FourAPI from './FourSquareAPI.js'
 
@@ -12,6 +13,11 @@ class MapView extends Component {
     }
 
     markers = this.props.markers;
+
+    gm_authFailure(){
+        window.alert("Could not authenticate to Google Maps")
+    }
+
 
     loadData(marker){
 
@@ -44,6 +50,12 @@ class MapView extends Component {
         )
     }
 
+    componentDidMount(){
+        window.gm_authFailure = this.gm_authFailure;
+    }
+
+
+
 
     MyMapComponent = withScriptjs(withGoogleMap((props) =>
         <GoogleMap
@@ -73,17 +85,20 @@ class MapView extends Component {
   ))
 
 
+
     render() {
 
         return (
             <div id="map">
-            <this.MyMapComponent
-                isMarkerShown={true}
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyABZJIOmyU36I209r096vcD_WY39JMxRPQ"
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: this.props.defaultHeight }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            />
+                <ErrorBoundary>
+                    <this.MyMapComponent
+                        isMarkerShown={true}
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyABZJIOmyU36I209r096vcD_WY39JMxRPQ"
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: this.props.defaultHeight }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    />
+                </ErrorBoundary>
             </div>
         )
     }

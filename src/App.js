@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({blueMarker: ride.id})
   }
 
-  doThings = (ride) => {
+  doThings = (ride) => { // Animates the marker on the map and then loads Foursquare data
     this.animateMarker(ride);
     this.getFourInfo(ride)
   }
