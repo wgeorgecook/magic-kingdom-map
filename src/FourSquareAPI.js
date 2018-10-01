@@ -10,7 +10,7 @@ export const getID = (location, marker) =>
     fetch(`https://api.foursquare.com/v2/venues/search?ll=${location.lat},${location.lng}&name=${marker.name}&client_id=${tokens.clientID}&client_secret=${tokens.clientSecret}&v=20180927&intent=match`)
         .then( (response) => (response.json() ))
         .then( (jsonResponse) => (jsonResponse.response.venues[0].id) )
-        .catch( (err) => console.log(err) )
+        .catch( (err) => window.alert(`Cannot retrieve venueID: ${err}`) )
 
 
 export const getDetails = (id) =>
