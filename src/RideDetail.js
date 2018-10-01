@@ -12,7 +12,7 @@ class RideDetail extends Component {
                 <img className="attributionImage" alt="powered by Foursquare" src={this.attrib} />
                 <img
                     className="rideImg"
-                    alt={`Snapshot of ${this.props.apiData.name} taken by Foursquare user ${this.props.apiData.photos.groups[1].items[0].user.firstName} ${this.props.apiData.photos.groups[1].items[0].user.lastName}`}
+                    alt={`Snapshot of ${this.props.apiData.name}`}
                     src={`${this.props.apiData.photos.groups[1].items[0].prefix}cap300${this.props.apiData.photos.groups[1].items[0].suffix}`}
                 />
                 <div className="rideName">Name: {this.props.apiData.name}</div>
