@@ -13,6 +13,11 @@ class MapView extends Component {
 
     markers = this.props.markers;
 
+    gm_authFailure(){
+        window.alert("Could not authenticate to Google Maps")
+    }
+
+
     loadData(marker){
 
         this.nullState()
@@ -42,6 +47,10 @@ class MapView extends Component {
                 blueMarker: null
             }
         )
+    }
+
+    componentDidMount(){
+        window.gm_authFailure = this.gm_authFailure;
     }
 
 
