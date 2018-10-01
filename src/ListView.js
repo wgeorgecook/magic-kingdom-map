@@ -44,7 +44,7 @@ class ListView extends Component {
         return (
             <div id="list-view">
 
-                <ul id='list-locations'>
+                <div id='list-locations'>
                     { (this.state.filter !== "All") ?
                         this.rides.filter( (ride) => ride.category.includes(this.state.filter)).map((ride) =>
                             <button
@@ -63,7 +63,7 @@ class ListView extends Component {
                                 {ride.name}
                             </button>)
                     }
-                </ul>
+                </div>
 
                 <LocationFilter
                     role="listbox"
