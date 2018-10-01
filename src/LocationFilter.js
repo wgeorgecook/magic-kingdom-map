@@ -12,7 +12,7 @@ class LocationFilter extends Component {
 
         return (
 
-            <select id='filter' onChange={this.selectNew}>
+            <select id='filterCategories' onChange={this.selectNew}>
                 <option value="All">All</option>
                 <option value="Thrill">Thrill</option>
                 <option value="Slow">Slow</option>
