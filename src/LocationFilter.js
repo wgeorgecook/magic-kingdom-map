@@ -13,12 +13,12 @@ class LocationFilter extends Component {
         return (
 
             <select id='filter' onChange={this.selectNew}>
-                <option value="All" tabIndex="1">All</option>
-                <option value="Thrill" tabIndex="1">Thrill</option>
-                <option value="Slow" tabIndex="1">Slow</option>
-                <option value="Show" tabIndex="1">Show</option>
-                <option value="Coaster" tabIndex="1">Coaster</option>
-                <option value="Dark" tabIndex="1">Dark</option>
+                <option value="All">All</option>
+                <option value="Thrill">Thrill</option>
+                <option value="Slow">Slow</option>
+                <option value="Show">Show</option>
+                <option value="Coaster">Coaster</option>
+                <option value="Dark">Dark</option>
             </select>
 
         )
