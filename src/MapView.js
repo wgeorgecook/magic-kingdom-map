@@ -58,6 +58,7 @@ class MapView extends Component {
         <GoogleMap
             defaultZoom={this.props.defaultZoom}
             defaultCenter={this.props.defaultLocation}
+            onError={(error) => window.alert(`Google maps could not be loaded. Please try again: ${error}`)}
             >
             {props.isMarkerShown && this.props.markers.map( (marker, i) =>
                 <div key={i} className="markers-and-infobox">
