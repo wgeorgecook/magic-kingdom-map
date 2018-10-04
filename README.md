@@ -5,7 +5,7 @@ If you know me, you know that I love Disney. When I was tasked with creating an 
 This is the final project for the [Udacity Front End Web Development Nanodegree](https://www.udacity.com/school-of-programming). I am extremely grateful for the fine folks at Udacity and Google for the [Grow With Google scholarship](https://www.udacity.com/grow-with-google). Without this colaboration, this would not be possible.
 
 ## Background
-Welcome to the Magic Kingdom is a progressive web app written with [React.js](https://reactjs.org/). The most important React library I made use of [react-google-maps](https://github.com/tomchentw/react-google-maps).
+Welcome to the Magic Kingdom is a progressive web app written with [React.js](https://reactjs.org/). The most important React library I made use of is [react-google-maps](https://github.com/tomchentw/react-google-maps).
 
 ## Features
 Welcome to the Magic Kingdom renders markers on a Google map of ten Magic Kingdom attractions defined in `data.json`, and creates a button corresponding for each of them. The `LocationFilter.js` component is a drop down menu which sorts the attractions based on their category (or categories), and only shows those attractions on the map. Clicking on a button triggers the `RideDetails.js` component to load data from Foursquare about the attraction and display it to the user.
